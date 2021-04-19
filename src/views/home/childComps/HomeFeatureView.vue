@@ -1,6 +1,6 @@
 <template>
   <div class="home-feature">
-    <a href="http://adi-v3.dev">
+    <a href="http://act.mogujie.com/zzlx67">
       <img src="~assets/images/home/recommend_bg.jpg" alt="">
     </a>
   </div>

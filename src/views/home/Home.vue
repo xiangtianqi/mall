@@ -13,14 +13,16 @@
     </scroller>
 
     <back-top @click.native="backTopClick" v-show="isShowBackTop" />
+
   </div>
 </template>
 
 <script>
-    import NavBar from "components/common/navbar/NavBar";
     import HomeSwiper from "./childComps/HomeSwiper";
     import HomeRecommend from "./childComps/HomeRecommend";
     import HomeFeatureView from "./childComps/HomeFeatureView";
+
+    import NavBar from "components/common/navbar/NavBar";
     import TabControl from "components/contents/tabControl/TabControl";
     import GoodsList from "components/contents/good/GoodsList";
     import Scroller from "components/common/scroller/Scroller";
@@ -31,10 +33,10 @@
     export default {
         name: "Home",
         components:{
-            NavBar,
             HomeSwiper,
             HomeRecommend,
             HomeFeatureView,
+            NavBar,
             TabControl,
             GoodsList,
             Scroller,
@@ -46,9 +48,9 @@
             recommends:[],
             products: [],
             goods:{
-              pop:{page:0, list:[]},
-              new:{page:0, list:[]},
-              sell:{page:0, list:[]}
+              'pop':{page:0, list:[]},
+              'new':{page:0, list:[]},
+              'sell':{page:0, list:[]}
             },
             currentType:'pop',
             isShowBackTop: false
@@ -61,13 +63,13 @@
         },
         created() {
             this.getHomeData()
-
-           /* this.getHomeGoodsData('pop')
+            this.getHomeGoodsData('pop')
             this.getHomeGoodsData('new')
-            this.getHomeGoodsData('sell')*/
+            this.getHomeGoodsData('sell')
         },
         methods:{
             pTabClick(index) {
+              console.log(index)
                 switch (index) {
                   case 0:
                       this.currentType = 'pop'
@@ -86,7 +88,8 @@
                     this.banners = res.data.banner.list
                     //推荐
                     this.recommends = res.data.recommend.list
-                    this.products = res.data.products
+
+                   //this.products = res.data.products
                 })
             },
             getHomeGoodsData(type) {
