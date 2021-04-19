@@ -6,7 +6,7 @@
 <!-- ref 是用于定位元素和取到组件的内容，:是绑定属性 @是绑定方法-->
     <scroller class="home-scroller" ref="scroller" :probe-type="3" @scroll="getPostion">
       <home-swiper :cbanners="banners"/>
-      <home-recommend :cproducts="products"/>
+      <home-recommend :crecommends="recommends"/>
       <home-feature-view/>
       <tab-control class="home-tab-control" :ctitles="['流行', '新款', '精选']" @tabClick="pTabClick"/>
       <goods-list :cgoods="showGoods"/>
@@ -43,6 +43,7 @@
         data() {
           return {
             banners: [],
+            recommends:[],
             products: [],
             goods:{
               pop:{page:0, list:[]},
@@ -61,9 +62,9 @@
         created() {
             this.getHomeData()
 
-            this.getHomeGoodsData('pop')
+           /* this.getHomeGoodsData('pop')
             this.getHomeGoodsData('new')
-            this.getHomeGoodsData('sell')
+            this.getHomeGoodsData('sell')*/
         },
         methods:{
             pTabClick(index) {
@@ -81,7 +82,10 @@
             },
             getHomeData() {
                 getHomeMultiData().then(res => {
-                    this.banners = res.data.banners
+                    //轮播图
+                    this.banners = res.data.banner.list
+                    //推荐
+                    this.recommends = res.data.recommend.list
                     this.products = res.data.products
                 })
             },

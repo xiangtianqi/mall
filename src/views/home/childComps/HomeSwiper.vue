@@ -1,8 +1,8 @@
 <template>
   <swiper class="home-swiper">
-    <swiper-item v-for="item in cbanners" :key="item.background">
+    <swiper-item v-for="item in cbanners" :key="item.image">
       <a :href="item.link">
-        <img :src="item.background" alt="">
+        <img :src="item.image" alt="">
       </a>
     </swiper-item>
   </swiper>
