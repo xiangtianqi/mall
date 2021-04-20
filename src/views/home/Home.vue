@@ -95,7 +95,7 @@
             getHomeGoodsData(type) {
                 let page = this.goods[type].page + 1
                 getGoodsData(type, page).then(res => {
-                    this.goods[type].list.push(...res.goods)
+                    this.goods[type].list.push(...res.data.list)
                     this.goods[type].page = res.page
                 })
             },

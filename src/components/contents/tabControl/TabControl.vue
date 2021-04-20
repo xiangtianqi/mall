@@ -6,7 +6,7 @@
          class="tab-control-item"
          @click="tabItemClick(index)"
     >
-      <span :class="{active:index === currentIndex}">{{item}}</span>
+      <span :class="{active:index === currentIndex}" >{{item}}</span>
     </div>
   </div>
 </template>
@@ -29,8 +29,9 @@
     },
     methods:{
       tabItemClick(index) {
+        console.log(index)
         this.currentIndex = index
-          this.$emit('tabClick', index)
+        this.$emit('tabClick', index)
       }
     }
   }

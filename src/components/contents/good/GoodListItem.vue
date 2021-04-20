@@ -1,10 +1,10 @@
 <template>
   <div class="goods-item">
-    <img :src="goodItem.image" alt="">
+    <img :src="goodItem.show.img" alt="">
     <div class="goods-info">
-      <p >{{goodItem.name}}</p>
-      <span class="price">{{goodItem.currency_symbol + goodItem.price_rmb}}</span>
-      <span class="collect">{{goodItem.id}}</span>
+      <p >{{goodItem.title}}</p>
+      <span class="price">{{goodItem.orgPrice}}</span>
+      <span class="collect">{{goodItem.cfav}}</span>
     </div>
   </div>
 
