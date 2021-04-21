@@ -26,13 +26,17 @@
             probeType:{
                 type:Number,
                 default:0
+            },
+            pullUpLoad:{
+                type:Boolean,
+                default:false
             }
         },
         mounted() {
             this.scroller = new BScroll(this.$refs.wrapper, {
                 probeType:this.probeType,
                 click:true,
-                pullUpLoad:true
+                pullUpLoad:this.pullUpLoad
             })
 
             this.scroller.on('scroll', (postion) => {
@@ -40,8 +44,8 @@
                 this.$emit('scroll', postion)
             })
 
-            this.scroller.on('pullingup', () => {
-              console.log('xxxx');
+            this.scroller.on('pullingUp', () => {
+              this.$emit('pullingUp')
             })
 
         },
@@ -49,6 +53,9 @@
             scrollTo(x, y, time=300) {
                 this.scroller.scrollTo(0, 0, time)
             },
+            finishPullUp(){
+                this.scroller.finishPullUp();
+            }
 
         }
     }

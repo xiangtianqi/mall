@@ -4,7 +4,7 @@
       <div slot="center">购物街</div>
     </nav-bar>
 <!-- ref 是用于定位元素和取到组件的内容，:是绑定属性 @是绑定方法-->
-    <scroller class="home-scroller" ref="scroller" :probe-type="3" @scroll="getPostion">
+    <scroller class="home-scroller" ref="scroller" :probe-type="3" @scroll="getPostion" :pull-up-load="true" @pullingUp="loadMore">
       <home-swiper :cbanners="banners"/>
       <home-recommend :crecommends="recommends"/>
       <home-feature-view/>
@@ -97,6 +97,8 @@
                 getGoodsData(type, page).then(res => {
                     this.goods[type].list.push(...res.data.list)
                     this.goods[type].page = res.page
+
+                    this.$refs.scroller.finishPullUp();
                 })
             },
             backTopClick() {
@@ -105,6 +107,11 @@
             },
             getPostion(postion) {
                 this.isShowBackTop = -postion.y > 300
+            },
+            loadMore(){
+                console.log(3444444)
+               this.getHomeGoodsData(this.currentType)
+               this.$refs.scroller.scroll.refresh()
             }
         }
     }
