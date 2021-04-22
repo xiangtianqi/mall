@@ -66,6 +66,10 @@
             this.getHomeGoodsData('pop')
             this.getHomeGoodsData('new')
             this.getHomeGoodsData('sell')
+            //监听item图片加载完成
+          this.$bus.$on('imageLoad',()=>{
+            this.$refs.scroller.refresh()
+          })
         },
         methods:{
             pTabClick(index) {
@@ -111,7 +115,7 @@
             loadMore(){
                 console.log(3444444)
                this.getHomeGoodsData(this.currentType)
-               this.$refs.scroller.scroll.refresh()
+               //this.$refs.scroller.scroll.refresh()
             }
         }
     }
