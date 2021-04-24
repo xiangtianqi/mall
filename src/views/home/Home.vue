@@ -66,7 +66,9 @@
             this.getHomeGoodsData('pop')
             this.getHomeGoodsData('new')
             this.getHomeGoodsData('sell')
-            //监听item图片加载完成
+        },
+        mounted(){
+          //监听item图片加载完成
           this.$bus.$on('imageLoad',()=>{
             this.$refs.scroller.refresh()
           })

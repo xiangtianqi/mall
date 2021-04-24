@@ -50,13 +50,13 @@
         },
         methods:{
             scrollTo(x, y, time=300) {
-                this.scroller.scrollTo(0, 0, time)
+                this.scroller && this.scroller.scrollTo(0, 0, time)
             },
             finishPullUp(){
                 this.scroller.finishPullUp();
             },
             refresh(){
-                this.scroller.refresh()
+               this.scroller &&  this.scroller.refresh()
             }
 
 
