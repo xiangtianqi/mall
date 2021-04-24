@@ -53,7 +53,7 @@
                 this.scroller && this.scroller.scrollTo(0, 0, time)
             },
             finishPullUp(){
-                this.scroller.finishPullUp();
+              this.scroller && this.scroller.finishPullUp();
             },
             refresh(){
                this.scroller &&  this.scroller.refresh()
